@@ -27,7 +27,7 @@ DrawHPBar::
 	dec a
 	ld a, $6d ; status screen and battle
 	jr z, .ok
-	dec a ; pokemon menu
+	dec a ; DIGIMON menu
 .ok
 	ld [hl], a
 
@@ -67,18 +67,18 @@ DrawHPBar::
 	ret
 
 
-; loads pokemon data from one of multiple sources to wLoadedMon
+; loads DIGIMON data from one of multiple sources to wLoadedMon
 ; loads base stats to wMonHeader
 ; INPUT:
-; [wWhichPokemon] = index of pokemon within party/box
+; [wWhichPokemon] = index of DIGIMON within party/box
 ; [wMonDataLocation] = source
 ; 00: player's party
 ; 01: enemy's party
 ; 02: current box
 ; 03: daycare
 ; OUTPUT:
-; [wcf91] = pokemon ID
-; wLoadedMon = base address of pokemon data
+; [wcf91] = DIGIMON ID
+; wLoadedMon = base address of DIGIMON data
 ; wMonHeader = base address of base stats
 LoadMonData::
 	jpfar LoadMonData_
@@ -213,7 +213,7 @@ PartyMenuInit::
 	ld [hli], a ; current menu item ID
 	inc hl
 	ld a, [wPartyCount]
-	and a ; are there more than 0 pokemon in the party?
+	and a ; are there more than 0 DIGIMON in the party?
 	jr z, .storeMaxMenuItemID
 	dec a
 ; if party is not empty, the max menu item ID is ([wPartyCount] - 1)
@@ -275,7 +275,7 @@ HandlePartyMenuInput::
 	ret
 .swappingPokemon
 	bit BIT_B_BUTTON, b
-	jr z, .handleSwap ; if not, handle swapping the pokemon
+	jr z, .handleSwap ; if not, handle swapping the DIGIMON
 .cancelSwap ; if the B button was pressed
 	farcall ErasePartyMenuCursors
 	xor a
@@ -300,7 +300,7 @@ DrawPartyMenuCommon::
 	ld b, BANK(RedrawPartyMenu_)
 	jp Bankswitch
 
-; prints a pokemon's status condition
+; prints a DIGIMON's status condition
 ; INPUT:
 ; de = address of status condition
 ; hl = destination address
@@ -312,10 +312,10 @@ PrintStatusCondition::
 	ld b, a
 	dec de
 	ld a, [de]
-	or b ; is the pokemon's HP zero?
+	or b ; is the DIGIMON's HP zero?
 	pop de
 	jr nz, PrintStatusConditionNotFainted
-; if the pokemon's HP is 0, print "FNT"
+; if the DIGIMON's HP is 0, print "FNT"
 	ld a, "F"
 	ld [hli], a
 	ld a, "N"
@@ -328,7 +328,7 @@ PrintStatusConditionNotFainted::
 	homecall_sf PrintStatusAilment
 	ret
 
-; function to print pokemon level, leaving off the ":L" if the level is at least 100
+; function to print DIGIMON level, leaving off the ":L" if the level is at least 100
 ; INPUT:
 ; hl = destination address
 ; [wLoadedMonLevel] = level
@@ -369,9 +369,9 @@ GetwMoves::
 	ld a, [hl]
 	ret
 
-; copies the base stat data of a pokemon to wMonHeader
+; copies the base stat data of a DIGIMON to wMonHeader
 ; INPUT:
-; [wd0b5] = pokemon ID
+; [wd0b5] = DIGIMON ID
 GetMonHeader::
 	ldh a, [hLoadedROMBank]
 	push af
@@ -398,7 +398,7 @@ GetMonHeader::
 	jr z, .specialID
 	cp MEW
 	jr z, .mew
-	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
+	predef IndexToPokedex   ; convert DIGIMON ID in [wd11e] to pokedex number
 	ld a, [wd11e]
 	dec a
 	ld bc, BASE_DATA_SIZE
@@ -435,7 +435,7 @@ GetMonHeader::
 	ld [MBC1RomBank], a
 	ret
 
-; copy party pokemon's name to wcd6d
+; copy party DIGIMON's name to wcd6d
 GetPartyMonName2::
 	ld a, [wWhichPokemon] ; index within party
 	ld hl, wPartyMonNicks

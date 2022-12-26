@@ -8,7 +8,7 @@ UncompressMonSprite::
 	ld [wSpriteInputPtr], a    ; fetch sprite input pointer
 	ld a, [hl]
 	ld [wSpriteInputPtr+1], a
-; define (by index number) the bank that a pokemon's image is in
+; define (by index number) the bank that a DIGIMON's image is in
 ; index = MEW:             bank $1
 ; index = FOSSIL_KABUTOPS: bank $B
 ;       index < $1F:       bank $9 ("Pics 1")

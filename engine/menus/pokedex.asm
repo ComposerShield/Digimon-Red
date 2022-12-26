@@ -29,7 +29,7 @@ ShowPokedexMenu:
 	ld [hli], a ; max menu item ID
 	ld [hl], D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
 	call HandlePokedexListMenu
-	jr c, .goToSideMenu ; if the player chose a pokemon from the list
+	jr c, .goToSideMenu ; if the player chose a DIGIMON from the list
 .exitPokedex
 	xor a
 	ld [wMenuWatchMovingOutOfBounds], a
@@ -48,15 +48,15 @@ ShowPokedexMenu:
 	dec b
 	jr z, .exitPokedex ; if the player chose Quit
 	dec b
-	jr z, .doPokemonListMenu ; if pokemon not seen or player pressed B button
-	jp .setUpGraphics ; if pokemon data or area was shown
+	jr z, .doPokemonListMenu ; if DIGIMON not seen or player pressed B button
+	jp .setUpGraphics ; if DIGIMON data or area was shown
 
 ; handles the menu on the lower right in the pokedex screen
 ; OUTPUT:
 ; b = reason for exiting menu
-; 00: showed pokemon data or area
+; 00: showed DIGIMON data or area
 ; 01: the player chose Quit
-; 02: the pokemon has not been seen yet or the player pressed the B button
+; 02: the DIGIMON has not been seen yet or the player pressed the B button
 HandlePokedexSideMenu:
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wCurrentMenuItem]
@@ -122,7 +122,7 @@ HandlePokedexSideMenu:
 	hlcoord 0, 3
 	ld de, 20
 	lb bc, " ", 13
-	call DrawTileLine ; cover up the menu cursor in the pokemon list
+	call DrawTileLine ; cover up the menu cursor in the DIGIMON list
 	pop bc
 	ret
 
@@ -140,7 +140,7 @@ HandlePokedexSideMenu:
 	ld b, 0
 	jr .exitSideMenu
 
-; play pokemon cry
+; play DIGIMON cry
 .choseCry
 	ld a, [wd11e]
 	call GetCryData
@@ -148,11 +148,11 @@ HandlePokedexSideMenu:
 	jr .handleMenuInput
 
 .choseArea
-	predef LoadTownMap_Nest ; display pokemon areas
+	predef LoadTownMap_Nest ; display DIGIMON areas
 	ld b, 0
 	jr .exitSideMenu
 
-; handles the list of pokemon on the left of the pokedex screen
+; handles the list of DIGIMON on the left of the pokedex screen
 ; sets carry flag if player presses A, unsets carry flag if player presses B
 HandlePokedexListMenu:
 	xor a
@@ -177,14 +177,14 @@ HandlePokedexListMenu:
 	ld de, wNumSetBits
 	hlcoord 16, 3
 	lb bc, 1, 3
-	call PrintNumber ; print number of seen pokemon
+	call PrintNumber ; print number of seen DIGIMON
 	ld hl, wPokedexOwned
 	ld b, wPokedexOwnedEnd - wPokedexOwned
 	call CountSetBits
 	ld de, wNumSetBits
 	hlcoord 16, 6
 	lb bc, 1, 3
-	call PrintNumber ; print number of owned pokemon
+	call PrintNumber ; print number of owned DIGIMON
 	hlcoord 16, 2
 	ld de, PokedexSeenText
 	call PlaceString
@@ -197,7 +197,7 @@ HandlePokedexListMenu:
 	hlcoord 16, 10
 	ld de, PokedexMenuItemsText
 	call PlaceString
-; find the highest pokedex number among the pokemon the player has seen
+; find the highest pokedex number among the DIGIMON the player has seen
 	ld hl, wPokedexSeenEnd - 1
 	ld b, (wPokedexSeenEnd - wPokedexSeen) * 8 + 1
 .maxSeenPokemonLoop
@@ -230,8 +230,8 @@ HandlePokedexListMenu:
 	ld d, a
 	dec a
 	ld [wMaxMenuItem], a
-; loop to print pokemon pokedex numbers and names
-; if the player has owned the pokemon, it puts a pokeball beside the name
+; loop to print DIGIMON pokedex numbers and names
+; if the player has owned the DIGIMON, it puts a pokeball beside the name
 .printPokemonLoop
 	ld a, [wd11e]
 	inc a
@@ -255,14 +255,14 @@ HandlePokedexListMenu:
 	jr z, .writeTile
 	ld a, $72 ; pokeball tile
 .writeTile
-	ld [hl], a ; put a pokeball next to pokemon that the player has owned
+	ld [hl], a ; put a pokeball next to DIGIMON that the player has owned
 	push hl
 	ld hl, wPokedexSeen
 	call IsPokemonBitSet
-	jr nz, .getPokemonName ; if the player has seen the pokemon
-	ld de, .dashedLine ; print a dashed line in place of the name if the player hasn't seen the pokemon
+	jr nz, .getPokemonName ; if the player has seen the DIGIMON
+	ld de, .dashedLine ; print a dashed line in place of the name if the player hasn't seen the DIGIMON
 	jr .skipGettingName
-.dashedLine ; for unseen pokemon in the list
+.dashedLine ; for unseen DIGIMON in the list
 	db "----------@"
 .getPokemonName
 	call PokedexToIndex
@@ -374,7 +374,7 @@ PokedexMenuItemsText:
 	next "AREA"
 	next "QUIT@"
 
-; tests if a pokemon's bit is set in the seen or owned pokemon bit fields
+; tests if a DIGIMON's bit is set in the seen or owned DIGIMON bit fields
 ; INPUT:
 ; [wd11e] = pokedex number
 ; hl = address of bit field
@@ -403,7 +403,7 @@ ShowPokedexDataInternal:
 	ldh [rNR50], a
 	call GBPalWhiteOut ; zero all palettes
 	call ClearScreen
-	ld a, [wd11e] ; pokemon ID
+	ld a, [wd11e] ; DIGIMON ID
 	ld [wcf91], a
 	push af
 	ld b, SET_PAL_POKEDEX
@@ -499,11 +499,11 @@ ShowPokedexDataInternal:
 
 	call Delay3
 	call GBPalNormal
-	call GetMonHeader ; load pokemon picture location
+	call GetMonHeader ; load DIGIMON picture location
 	hlcoord 1, 1
-	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
+	call LoadFlippedFrontSpriteByMonIndex ; draw DIGIMON picture
 	ld a, [wcf91]
-	call PlayCry ; play pokemon cry
+	call PlayCry ; play DIGIMON cry
 
 	pop hl
 	pop de
@@ -512,7 +512,7 @@ ShowPokedexDataInternal:
 
 	ld a, c
 	and a
-	jp z, .waitForButtonPress ; if the pokemon has not been owned, don't print the height, weight, or description
+	jp z, .waitForButtonPress ; if the DIGIMON has not been owned, don't print the height, weight, or description
 	inc de ; de = address of feet (height)
 	ld a, [de] ; reads feet, but a is overwritten without being used
 	hlcoord 12, 6

@@ -317,7 +317,7 @@ OverworldLoopLessDelay::
 	predef ApplyOutOfBattlePoisonDamage ; also increment daycare mon exp
 	ld a, [wOutOfBattleBlackout]
 	and a
-	jp nz, HandleBlackOut ; if all pokemon fainted
+	jp nz, HandleBlackOut ; if all DIGIMON fainted
 .newBattle
 	call NewBattle
 	ld hl, wd736
@@ -754,7 +754,7 @@ MapEntryAfterBattle::
 	jp LoadGBPal
 
 HandleBlackOut::
-; For when all the player's pokemon faint.
+; For when all the player's DIGIMON faint.
 ; Does not print the "blacked out" message.
 
 	call GBFadeOutToBlack
@@ -1114,7 +1114,7 @@ IsSpriteOrSignInFrontOfPlayer::
 .retry
 	dec b
 	jr nz, .signLoop
-; check if the player is front of a counter in a pokemon center, pokemart, etc. and if so, extend the range at which he can talk to the NPC
+; check if the player is front of a counter in a DIGIMON center, pokemart, etc. and if so, extend the range at which he can talk to the NPC
 .extendRangeOverCounter
 	predef GetTileAndCoordsInFrontOfPlayer ; get the tile in front of the player in c
 	ld hl, wTilesetTalkingOverTiles ; list of tiles that extend talking range (counter tiles)

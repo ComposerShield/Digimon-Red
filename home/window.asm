@@ -13,15 +13,15 @@ HandleMenuInput_::
 	ldh [hDownArrowBlinkCount2], a ; blinking down arrow timing value 2
 .loop1
 	xor a
-	ld [wAnimCounter], a ; counter for pokemon shaking animation
+	ld [wAnimCounter], a ; counter for DIGIMON shaking animation
 	call PlaceMenuCursor
 	call Delay3
 .loop2
 	push hl
 	ld a, [wPartyMenuAnimMonEnabled]
-	and a ; is it a pokemon selection menu?
+	and a ; is it a DIGIMON selection menu?
 	jr z, .getJoypadState
-	farcall AnimatePartyMon ; shake mini sprite of selected pokemon
+	farcall AnimatePartyMon ; shake mini sprite of selected DIGIMON
 .getJoypadState
 	pop hl
 	call JoypadLowSensitivity

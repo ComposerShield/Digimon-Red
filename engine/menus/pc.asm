@@ -27,7 +27,7 @@ PCMainMenu:
 	jp LogOff        ;otherwise, it's 2, and you're logging off
 .next
 	cp 3
-	jr nz, .next2 ;if not 3 menu items (not counting log off) (3 occurs after you get the pokedex, before you beat the pokemon league)
+	jr nz, .next2 ;if not 3 menu items (not counting log off) (3 occurs after you get the pokedex, before you beat the DIGIMON league)
 	ld a, [wCurrentMenuItem]
 	and a
 	jp z, BillsPC    ;if current menu item id is 0, it's bills pc

@@ -123,7 +123,7 @@ IsObjectHidden:
 	ldh [hIsHiddenMissableObject], a
 	ret
 
-; adds missable object (items, leg. pokemon, etc.) to the map
+; adds missable object (items, leg. DIGIMON, etc.) to the map
 ; [wMissableObjectIndex]: index of the missable object to be added (global index)
 ShowObject:
 ShowObject2:
@@ -134,7 +134,7 @@ ShowObject2:
 	call MissableObjectFlagAction   ; reset "removed" flag
 	jp UpdateSprites
 
-; removes missable object (items, leg. pokemon, etc.) from the map
+; removes missable object (items, leg. DIGIMON, etc.) from the map
 ; [wMissableObjectIndex]: index of the missable object to be removed (global index)
 HideObject:
 	ld hl, wMissableObjectFlags

@@ -1,4 +1,4 @@
-; pokemon ids
+; DIGIMON ids
 ; indexes for:
 ; - MonsterNames (see data/pokemon/names.asm)
 ; - EvosMovesPointerTable (see data/pokemon/evos_moves.asm)

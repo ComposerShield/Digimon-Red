@@ -32,7 +32,7 @@ StartMenu_Pokemon::
 	call SaveScreenTilesToBuffer1
 	ld a, FIELD_MOVE_MON_MENU
 	ld [wTextBoxID], a
-	call DisplayTextBoxID ; display pokemon menu options
+	call DisplayTextBoxID ; display DIGIMON menu options
 	ld hl, wFieldMoves
 	lb bc, 2, 12 ; max menu item ID, top menu item Y
 	ld e, 5
@@ -86,7 +86,7 @@ StartMenu_Pokemon::
 	jp .choseOutOfBattleMove
 .choseSwitch
 	ld a, [wPartyCount]
-	cp 2 ; is there more than one pokemon in the party?
+	cp 2 ; is there more than one DIGIMON in the party?
 	jp c, StartMenu_Pokemon ; if not, no switching
 	call SwitchPartyMon_InitVarOrSwapData ; init [wMenuItemToSwap]
 	ld a, SWAP_MONS_PARTY_MENU

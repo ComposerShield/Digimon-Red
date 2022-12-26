@@ -3,7 +3,7 @@
 ; first. e.g., erika's script writes 4 to [wLoneAttackNo] to get mega drain,
 ; the fourth entry in the list.
 LoneMoves:
-	; pokemon index, move to give nth pokemon
+	; DIGIMON index, move to give nth DIGIMON
 	db 1, BIDE
 	db 1, BUBBLEBEAM
 	db 2, THUNDERBOLT

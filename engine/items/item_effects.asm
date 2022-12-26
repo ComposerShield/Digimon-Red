@@ -586,15 +586,15 @@ ItemUseBall:
 
 ItemUseBallText00:
 ;"It dodged the thrown ball!"
-;"This pokemon can't be caught"
+;"This DIGIMON can't be caught"
 	text_far _ItemUseBallText00
 	text_end
 ItemUseBallText01:
-;"You missed the pokemon!"
+;"You missed the DIGIMON!"
 	text_far _ItemUseBallText01
 	text_end
 ItemUseBallText02:
-;"Darn! The pokemon broke free!"
+;"Darn! The DIGIMON broke free!"
 	text_far _ItemUseBallText02
 	text_end
 ItemUseBallText03:
@@ -779,7 +779,7 @@ ItemUseEvoStone:
 	ld a, SFX_HEAL_AILMENT
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	callfar TryEvolvingMon ; try to evolve pokemon
+	callfar TryEvolvingMon ; try to evolve DIGIMON
 	ld a, [wEvolutionOccurred]
 	and a
 	jr z, .noEffect
@@ -852,7 +852,7 @@ ItemUseMedicine:
 	jr z, .checkItemType
 ; if using softboiled
 	ld a, [wWhichPokemon]
-	cp d ; is the pokemon trying to use softboiled on itself?
+	cp d ; is the DIGIMON trying to use softboiled on itself?
 	jr z, ItemUseMedicine ; if so, force another choice
 .checkItemType
 	ld a, [wcf91]
@@ -886,20 +886,20 @@ ItemUseMedicine:
 	jr z, .checkMonStatus
 	lb bc, FULL_HEAL_MSG, $ff ; Full Heal
 .checkMonStatus
-	ld a, [hl] ; pokemon's status
-	and c ; does the pokemon have a status ailment the item can cure?
+	ld a, [hl] ; DIGIMON's status
+	and c ; does the DIGIMON have a status ailment the item can cure?
 	jp z, .healingItemNoEffect
-; if the pokemon has a status the item can heal
+; if the DIGIMON has a status the item can heal
 	xor a
 	ld [hl], a ; remove the status ailment in the party data
 	ld a, b
 	ld [wPartyMenuTypeOrMessageID], a ; the message to display for the item used
 	ld a, [wPlayerMonNumber]
-	cp d ; is pokemon the item was used on active in battle?
+	cp d ; is DIGIMON the item was used on active in battle?
 	jp nz, .doneHealing
 ; if it is active in battle
 	xor a
-	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle pokemon data
+	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle DIGIMON data
 	push hl
 	ld hl, wPlayerBattleStatus3
 	res BADLY_POISONED, [hl] ; heal Toxic status
@@ -973,14 +973,14 @@ ItemUseMedicine:
 .skipComparingLSB
 	pop hl
 	jr nz, .notFullHP
-.fullHP ; if the pokemon's current HP equals its max HP
+.fullHP ; if the DIGIMON's current HP equals its max HP
 	ld a, [wcf91]
 	cp FULL_RESTORE
 	jp nz, .healingItemNoEffect
 	inc hl
 	inc hl
 	ld a, [hld] ; status ailment
-	and a ; does the pokemon have a status ailment?
+	and a ; does the DIGIMON have a status ailment?
 	jp z, .healingItemNoEffect
 	ld a, FULL_HEAL
 	ld [wcf91], a
@@ -988,7 +988,7 @@ ItemUseMedicine:
 	dec hl
 	dec hl
 	jp .cureStatusAilment
-.notFullHP ; if the pokemon's current HP doesn't equal its max HP
+.notFullHP ; if the DIGIMON's current HP doesn't equal its max HP
 	xor a
 	ld [wLowHealthAlarm], a ;disable low health alarm
 	ld [wChannelSoundIDs + CHAN5], a
@@ -1026,10 +1026,10 @@ ItemUseMedicine:
 	ld a, 5
 	ldh [hDivisor], a
 	ld b, 2 ; number of bytes
-	call Divide ; get 1/5 of max HP of pokemon that used Softboiled
+	call Divide ; get 1/5 of max HP of DIGIMON that used Softboiled
 	ld bc, (wPartyMon1HP + 1) - (wPartyMon1MaxHP + 1)
-	add hl, bc ; hl now points to LSB of current HP of pokemon that used Softboiled
-; subtract 1/5 of max HP from current HP of pokemon that used Softboiled
+	add hl, bc ; hl now points to LSB of current HP of DIGIMON that used Softboiled
+; subtract 1/5 of max HP from current HP of DIGIMON that used Softboiled
 	ldh a, [hQuotient + 3]
 	push af
 	ld b, a
@@ -1048,7 +1048,7 @@ ItemUseMedicine:
 	hlcoord 4, 1
 	ld a, [wWhichPokemon]
 	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes ; calculate coordinates of HP bar of pokemon that used Softboiled
+	call AddNTimes ; calculate coordinates of HP bar of DIGIMON that used Softboiled
 	ld a, SFX_HEAL_HP
 	call PlaySoundWaitForCurrent
 	ldh a, [hUILayoutFlags]
@@ -1056,7 +1056,7 @@ ItemUseMedicine:
 	ldh [hUILayoutFlags], a
 	ld a, $02
 	ld [wHPBarType], a
-	predef UpdateHPBar2 ; animate HP bar decrease of pokemon that used Softboiled
+	predef UpdateHPBar2 ; animate HP bar decrease of DIGIMON that used Softboiled
 	ldh a, [hUILayoutFlags]
 	res 0, a
 	ldh [hUILayoutFlags], a
@@ -1149,7 +1149,7 @@ ItemUseMedicine:
 	ld [de], a
 	ld [wHPBarNewHP], a
 	dec de
-.doneHealingPartyHP ; done updating the pokemon's current HP in the party data structure
+.doneHealingPartyHP ; done updating the DIGIMON's current HP in the party data structure
 	ld a, [wcf91]
 	cp FULL_RESTORE
 	jr nz, .updateInBattleData
@@ -1162,7 +1162,7 @@ ItemUseMedicine:
 	ld l, e
 	pop de
 	ld a, [wPlayerMonNumber]
-	cp d ; is pokemon the item was used on active in battle?
+	cp d ; is DIGIMON the item was used on active in battle?
 	jr nz, .calculateHPBarCoords
 ; copy party HP to in-battle HP
 	ld a, [hli]
@@ -1173,7 +1173,7 @@ ItemUseMedicine:
 	cp FULL_RESTORE
 	jr nz, .calculateHPBarCoords
 	xor a
-	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle pokemon data
+	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle DIGIMON data
 .calculateHPBarCoords
 	ld hl, wShadowOAMSprite36
 	ld bc, 2 * SCREEN_WIDTH
@@ -1408,7 +1408,7 @@ ItemUseMedicine:
 	predef LearnMoveFromLevelUp ; learn level up move, if any
 	xor a
 	ld [wForceEvolution], a
-	callfar TryEvolvingMon ; evolve pokemon, if appropriate
+	callfar TryEvolvingMon ; evolve DIGIMON, if appropriate
 	ld a, $01
 	ld [wUpdateSpritesEnabled], a
 	pop af
@@ -1720,10 +1720,10 @@ ItemUsePokeflute:
 	ld [hl], a
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
 	ld a, [wWereAnyMonsAsleep]
-	and a ; were any pokemon asleep before playing the flute?
+	and a ; were any DIGIMON asleep before playing the flute?
 	ld hl, PlayedFluteNoEffectText
-	jp z, PrintText ; if no pokemon were asleep
-; if some pokemon were asleep
+	jp z, PrintText ; if no DIGIMON were asleep
+; if some DIGIMON were asleep
 	ld hl, PlayedFluteHadEffectText
 	call PrintText
 	ld a, [wLowHealthAlarm]
@@ -1739,13 +1739,13 @@ ItemUsePokeflute:
 	ld hl, FluteWokeUpText
 	jp PrintText
 
-; wakes up all party pokemon
+; wakes up all party DIGIMON
 ; INPUT:
-; hl must point to status of first pokemon in party (player's or enemy's)
+; hl must point to status of first DIGIMON in party (player's or enemy's)
 ; b must equal ~SLP
 ; [wWereAnyMonsAsleep] should be initialized to 0
 ; OUTPUT:
-; [wWereAnyMonsAsleep]: set to 1 if any pokemon were asleep
+; [wWereAnyMonsAsleep]: set to 1 if any DIGIMON were asleep
 WakeUpEntireParty:
 	ld de, 44
 	ld c, 6
@@ -1755,7 +1755,7 @@ WakeUpEntireParty:
 	and SLP_MASK
 	jr z, .notAsleep
 	ld a, 1
-	ld [wWereAnyMonsAsleep], a ; indicate that a pokemon had to be woken up
+	ld [wWereAnyMonsAsleep], a ; indicate that a DIGIMON had to be woken up
 .notAsleep
 	pop af
 	and b ; remove Sleep status
@@ -2017,7 +2017,7 @@ ItemUsePPRestore:
 	ld a, [wWhichPokemon]
 	ld b, a
 	ld a, [wPlayerMonNumber]
-	cp b ; is the pokemon whose PP was restored active in battle?
+	cp b ; is the DIGIMON whose PP was restored active in battle?
 	jr nz, .skipUpdatingInBattleData
 	ld hl, wPartyMon1PP
 	ld bc, wPartyMon2 - wPartyMon1
@@ -2211,23 +2211,23 @@ ItemUseTMHM:
 	call RunDefaultPaletteCommand
 	jp LoadScreenTilesFromBuffer1 ; restore saved screen
 .checkIfAbleToLearnMove
-	predef CanLearnTM ; check if the pokemon can learn the move
+	predef CanLearnTM ; check if the DIGIMON can learn the move
 	push bc
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
 	pop bc
 	ld a, c
-	and a ; can the pokemon learn the move?
+	and a ; can the DIGIMON learn the move?
 	jr nz, .checkIfAlreadyLearnedMove
-; if the pokemon can't learn the move
+; if the DIGIMON can't learn the move
 	ld a, SFX_DENIED
 	call PlaySoundWaitForCurrent
 	ld hl, MonCannotLearnMachineMoveText
 	call PrintText
 	jr .chooseMon
 .checkIfAlreadyLearnedMove
-	callfar CheckIfMoveIsKnown ; check if the pokemon already knows the move
+	callfar CheckIfMoveIsKnown ; check if the DIGIMON already knows the move
 	jr c, .chooseMon
 	predef LearnMove ; teach move
 	pop af
@@ -2362,10 +2362,10 @@ GotOffBicycleText:
 	text_far _GotOffBicycleText2
 	text_end
 
-; restores bonus PP (from PP Ups) when healing at a pokemon center
+; restores bonus PP (from PP Ups) when healing at a DIGIMON center
 ; also, when a PP Up is used, it increases the current PP by one PP Up bonus
 ; INPUT:
-; [wWhichPokemon] = index of pokemon in party
+; [wWhichPokemon] = index of DIGIMON in party
 ; [wCurrentMenuItem] = index of move (when using a PP Up)
 RestoreBonusPP:
 	ld hl, wPartyMon1Moves
@@ -2374,18 +2374,18 @@ RestoreBonusPP:
 	call AddNTimes
 	push hl
 	ld de, wNormalMaxPPList - 1
-	predef LoadMovePPs ; loads the normal max PP of each of the pokemon's moves to wNormalMaxPPList
+	predef LoadMovePPs ; loads the normal max PP of each of the DIGIMON's moves to wNormalMaxPPList
 	pop hl
 	ld c, wPartyMon1PP - wPartyMon1Moves
 	ld b, 0
 	add hl, bc ; hl now points to move 1 PP
 	ld de, wNormalMaxPPList
 	ld b, 0 ; initialize move counter to zero
-; loop through the pokemon's moves
+; loop through the DIGIMON's moves
 .loop
 	inc b
 	ld a, b
-	cp 5 ; reached the end of the pokemon's moves?
+	cp 5 ; reached the end of the DIGIMON's moves?
 	ret z ; if so, return
 	ld a, [wUsingPPUp]
 	dec a ; using a PP Up?
@@ -2446,15 +2446,15 @@ AddBonusPP:
 	pop bc
 	ret
 
-; gets max PP of a pokemon's move (including PP from PP Ups)
+; gets max PP of a DIGIMON's move (including PP from PP Ups)
 ; INPUT:
-; [wWhichPokemon] = index of pokemon within party/box
-; [wMonDataLocation] = pokemon source
+; [wWhichPokemon] = index of DIGIMON within party/box
+; [wMonDataLocation] = DIGIMON source
 ; 00: player's party
 ; 01: enemy's party
 ; 02: current box
 ; 03: daycare
-; 04: player's in-battle pokemon
+; 04: player's in-battle DIGIMON
 ; [wCurrentMenuItem] = move index
 ; OUTPUT:
 ; [wMaxPP] = max PP
@@ -2474,7 +2474,7 @@ GetMaxPP:
 	ld hl, wDayCareMonMoves
 	dec a
 	jr z, .sourceWithOneMon
-	ld hl, wBattleMonMoves ; player's in-battle pokemon
+	ld hl, wBattleMonMoves ; player's in-battle DIGIMON
 .sourceWithOneMon
 	call GetSelectedMoveOffset2
 	jr .next
@@ -2495,11 +2495,11 @@ GetMaxPP:
 	ld b, a ; b = normal max PP
 	pop hl
 	push bc
-	ld bc, wPartyMon1PP - wPartyMon1Moves ; PP offset if not player's in-battle pokemon data
+	ld bc, wPartyMon1PP - wPartyMon1Moves ; PP offset if not player's in-battle DIGIMON data
 	ld a, [wMonDataLocation]
-	cp 4 ; player's in-battle pokemon?
+	cp 4 ; player's in-battle DIGIMON?
 	jr nz, .addPPOffset
-	ld bc, wBattleMonPP - wBattleMonMoves ; PP offset if player's in-battle pokemon data
+	ld bc, wBattleMonPP - wBattleMonMoves ; PP offset if player's in-battle DIGIMON data
 .addPPOffset
 	add hl, bc
 	ld a, [hl] ; a = current PP

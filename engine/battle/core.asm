@@ -322,7 +322,7 @@ MainInBattleLoop:
 	jr .selectEnemyMove
 .selectPlayerMove
 	ld a, [wActionResultOrTookBattleTurn]
-	and a ; has the player already used the turn (e.g. by using an item, trying to run or switching pokemon)
+	and a ; has the player already used the turn (e.g. by using an item, trying to run or switching DIGIMON)
 	jr nz, .selectEnemyMove
 	ld [wMoveMenuType], a
 	inc a
@@ -1449,7 +1449,7 @@ TrainerSentOutText:
 	text_far _TrainerSentOutText
 	text_end
 
-; tests if the player has any pokemon that are not fainted
+; tests if the player has any DIGIMON that are not fainted
 ; sets d = 0 if all fainted, d != 0 if some mons are still alive
 AnyPartyAlive::
 	ld a, [wPartyCount]
@@ -3073,7 +3073,7 @@ ExecutePlayerMove:
 	ld a, $a
 	ld [wDamageMultipliers], a
 	ld a, [wActionResultOrTookBattleTurn]
-	and a ; has the player already used the turn (e.g. by using an item, trying to run or switching pokemon)
+	and a ; has the player already used the turn (e.g. by using an item, trying to run or switching DIGIMON)
 	jp nz, ExecutePlayerMoveDone
 	call PrintGhostText
 	jp z, ExecutePlayerMoveDone
@@ -3645,7 +3645,7 @@ PrintMoveIsDisabledText:
 	ld de, wEnemyBattleStatus1
 .removeChargingUp
 	ld a, [de]
-	res CHARGING_UP, a ; end the pokemon's
+	res CHARGING_UP, a ; end the DIGIMON's
 	ld [de], a
 	ld a, [hl]
 	ld [wd11e], a
@@ -4805,7 +4805,7 @@ ApplyDamageToEnemyPokemon:
 	ld a, [wEnemyBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a ; does the enemy have a substitute?
 	jp nz, AttackSubstitute
-; subtract the damage from the pokemon's current HP
+; subtract the damage from the DIGIMON's current HP
 ; also, save the current HP at wHPBarOldHP
 	ld a, [hld]
 	ld b, a
@@ -4821,7 +4821,7 @@ ApplyDamageToEnemyPokemon:
 	ld [wEnemyMonHP], a
 	jr nc, .animateHpBar
 ; if more damage was done than the current HP, zero the HP and set the damage (wDamage)
-; equal to how much HP the pokemon had before the attack
+; equal to how much HP the DIGIMON had before the attack
 	ld a, [wHPBarOldHP+1]
 	ld [hli], a
 	ld a, [wHPBarOldHP]
@@ -4924,7 +4924,7 @@ ApplyDamageToPlayerPokemon:
 	ld a, [wPlayerBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a ; does the player have a substitute?
 	jp nz, AttackSubstitute
-; subtract the damage from the pokemon's current HP
+; subtract the damage from the DIGIMON's current HP
 ; also, save the current HP at wHPBarOldHP and the new HP at wHPBarNewHP
 	ld a, [hld]
 	ld b, a
@@ -4941,7 +4941,7 @@ ApplyDamageToPlayerPokemon:
 	ld [wHPBarNewHP+1], a
 	jr nc, .animateHpBar
 ; if more damage was done than the current HP, zero the HP and set the damage (wDamage)
-; equal to how much HP the pokemon had before the attack
+; equal to how much HP the DIGIMON had before the attack
 	ld a, [wHPBarOldHP+1]
 	ld [hli], a
 	ld a, [wHPBarOldHP]
@@ -5029,7 +5029,7 @@ SubstituteBrokeText:
 	text_far _SubstituteBrokeText
 	text_end
 
-; this function raises the attack modifier of a pokemon using Rage when that pokemon is attacked
+; this function raises the attack modifier of a DIGIMON using Rage when that DIGIMON is attacked
 HandleBuildingRage:
 ; values for the player turn
 	ld hl, wEnemyBattleStatus2
@@ -5043,7 +5043,7 @@ HandleBuildingRage:
 	ld de, wPlayerMonStatMods
 	ld bc, wPlayerMoveNum
 .next
-	bit USING_RAGE, [hl] ; is the pokemon being attacked under the effect of Rage?
+	bit USING_RAGE, [hl] ; is the DIGIMON being attacked under the effect of Rage?
 	ret z ; return if not
 	ld a, [de]
 	cp $0d ; maximum stat modifier value
@@ -5051,7 +5051,7 @@ HandleBuildingRage:
 	ldh a, [hWhoseTurn]
 	xor $01 ; flip turn for the stat modifier raising function
 	ldh [hWhoseTurn], a
-; temporarily change the target pokemon's move to $00 and the effect to the one
+; temporarily change the target DIGIMON's move to $00 and the effect to the one
 ; that causes the attack modifier to go up one stage
 	ld h, b
 	ld l, c
@@ -5066,7 +5066,7 @@ HandleBuildingRage:
 	xor a
 	ldd [hl], a ; null move effect
 	ld a, RAGE
-	ld [hl], a ; restore the target pokemon's move number to Rage
+	ld [hl], a ; restore the target DIGIMON's move number to Rage
 	ldh a, [hWhoseTurn]
 	xor $01 ; flip turn back to the way it was
 	ldh [hWhoseTurn], a
@@ -5176,7 +5176,7 @@ IncrementMovePP:
 	ld b, $00
 	ld c, a
 	add hl, bc
-	inc [hl] ; increment PP in the currently battling pokemon memory location
+	inc [hl] ; increment PP in the currently battling DIGIMON memory location
 	ld h, d
 	ld l, e
 	add hl, bc
@@ -5305,7 +5305,7 @@ AdjustDamageForMoveType:
 .done
 	ret
 
-; function to tell how effective the type of an enemy attack is on the player's current pokemon
+; function to tell how effective the type of an enemy attack is on the player's current DIGIMON
 ; this doesn't take into account the effects that dual types can have
 ; (e.g. 4x weakness / resistance, weaknesses and resistances canceling)
 ; the result is stored in [wTypeEffectiveness]
@@ -5315,9 +5315,9 @@ AIGetTypeEffectiveness:
 	ld a, [wEnemyMoveType]
 	ld d, a                    ; d = type of enemy move
 	ld hl, wBattleMonType
-	ld b, [hl]                 ; b = type 1 of player's pokemon
+	ld b, [hl]                 ; b = type 1 of player's DIGIMON
 	inc hl
-	ld c, [hl]                 ; c = type 2 of player's pokemon
+	ld c, [hl]                 ; c = type 2 of player's DIGIMON
 	ld a, $10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
@@ -5328,9 +5328,9 @@ AIGetTypeEffectiveness:
 	cp d                      ; match the type of the move
 	jr nz, .nextTypePair1
 	ld a, [hli]
-	cp b                      ; match with type 1 of pokemon
+	cp b                      ; match with type 1 of DIGIMON
 	jr z, .done
-	cp c                      ; or match with type 2 of pokemon
+	cp c                      ; or match with type 2 of DIGIMON
 	jr z, .done
 	jr .nextTypePair2
 .nextTypePair1

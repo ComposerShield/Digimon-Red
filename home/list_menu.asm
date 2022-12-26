@@ -148,10 +148,10 @@ DisplayListMenuIDLoop::
 .pokemonList
 	ld hl, wPartyCount
 	ld a, [wListPointer]
-	cp l ; is it a list of party pokemon or box pokemon?
+	cp l ; is it a list of party DIGIMON or box DIGIMON?
 	ld hl, wPartyMonNicks
 	jr z, .getPokemonName
-	ld hl, wBoxMonNicks ; box pokemon names
+	ld hl, wBoxMonNicks ; box DIGIMON names
 .getPokemonName
 	ld a, [wWhichPokemon]
 	call GetPartyMonName
@@ -385,10 +385,10 @@ PrintListMenuEntries::
 	push hl
 	ld hl, wPartyCount
 	ld a, [wListPointer]
-	cp l ; is it a list of party pokemon or box pokemon?
+	cp l ; is it a list of party DIGIMON or box DIGIMON?
 	ld hl, wPartyMonNicks
 	jr z, .getPokemonName
-	ld hl, wBoxMonNicks ; box pokemon names
+	ld hl, wBoxMonNicks ; box DIGIMON names
 .getPokemonName
 	ld a, [wWhichPokemon]
 	ld b, a
@@ -430,7 +430,7 @@ PrintListMenuEntries::
 	push hl
 	ld hl, wPartyCount
 	ld a, [wListPointer]
-	cp l ; is it a list of party pokemon or box pokemon?
+	cp l ; is it a list of party DIGIMON or box DIGIMON?
 	ld a, PLAYER_PARTY_DATA
 	jr z, .next
 	ld a, BOX_DATA
@@ -447,7 +447,7 @@ PrintListMenuEntries::
 	ld [hl], a
 	call LoadMonData
 	ld a, [wMonDataLocation]
-	and a ; is it a list of party pokemon or box pokemon?
+	and a ; is it a list of party DIGIMON or box DIGIMON?
 	jr z, .skipCopyingLevel
 .copyLevel
 	ld a, [wLoadedMonBoxLevel]

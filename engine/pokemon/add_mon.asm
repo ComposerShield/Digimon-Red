@@ -331,10 +331,10 @@ _AddEnemyMonToPlayerParty::
 	ld b, FLAG_SET
 	ld hl, wPokedexOwned
 	push bc
-	call FlagAction ; add to owned pokemon
+	call FlagAction ; add to owned DIGIMON
 	pop bc
 	ld hl, wPokedexSeen
-	call FlagAction ; add to seen pokemon
+	call FlagAction ; add to seen DIGIMON
 	and a
 	ret                  ; return success
 

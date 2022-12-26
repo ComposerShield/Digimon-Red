@@ -96,7 +96,7 @@ InGameTrade_DoTrade:
 	call InGameTrade_RestoreScreen
 	pop af
 	ld a, $1
-	jp c, .tradeFailed ; jump if the player didn't select a pokemon
+	jp c, .tradeFailed ; jump if the player didn't select a DIGIMON
 	ld a, [wInGameTradeGiveMonSpecies]
 	ld b, a
 	ld a, [wcf91]

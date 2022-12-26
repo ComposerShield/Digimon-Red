@@ -503,7 +503,7 @@ AIUseHyperPotion:
 	; fallthrough
 
 AIRecoverHP:
-; heal b HP and print "trainer used $(a) on pokemon!"
+; heal b HP and print "trainer used $(a) on DIGIMON!"
 	ld [wAIItem], a
 	ld hl, wEnemyMonHP + 1
 	ld a, [hl]
@@ -623,7 +623,7 @@ AIUseFullHeal:
 	jp AIPrintItemUse
 
 AICureStatus:
-; cures the status of enemy's active pokemon
+; cures the status of enemy's active DIGIMON
 	ld a, [wEnemyMonPartyPos]
 	ld hl, wEnemyMon1Status
 	ld bc, wEnemyMon2 - wEnemyMon1

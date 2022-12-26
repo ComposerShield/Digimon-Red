@@ -62,7 +62,7 @@ DisplayTitleScreen:
 	call FarCopyDataDouble
 	call ClearBothBGMaps
 
-; place tiles for pokemon logo (except for the last row)
+; place tiles for DIGIMON logo (except for the last row)
 	hlcoord 2, 1
 	ld a, $80
 	ld de, SCREEN_WIDTH
@@ -80,7 +80,7 @@ DisplayTitleScreen:
 	dec c
 	jr nz, .pokemonLogoTileLoop
 
-; place tiles for the last row of the pokemon logo
+; place tiles for the last row of the DIGIMON logo
 	hlcoord 2, 7
 	ld a, $31
 	ld b, $10
@@ -141,7 +141,7 @@ ENDC
 	ld a, %11100100
 	ldh [rOBP0], a
 
-; make pokemon logo bounce up and down
+; make DIGIMON logo bounce up and down
 	ld bc, hSCY ; background scroll Y
 	ld hl, .TitleScreenPokemonLogoYScrolls
 .bouncePokemonLogoLoop

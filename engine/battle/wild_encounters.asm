@@ -1,4 +1,4 @@
-; try to initiate a wild pokemon encounter
+; try to initiate a wild DIGIMON encounter
 ; returns success in Z
 TryDoWildEncounter:
 	ld a, [wNPCMovementScriptPointerTableNum]
@@ -23,7 +23,7 @@ TryDoWildEncounter:
 	jr z, .lastRepelStep
 	ld [wRepelRemainingSteps], a
 .next
-; determine if wild pokemon can appear in the half-block we're standing in
+; determine if wild DIGIMON can appear in the half-block we're standing in
 ; is the bottom right tile (9,9) of the half-block we're standing in a grass/water tile?
 	hlcoord 9, 9
 	ld c, [hl]
@@ -35,8 +35,8 @@ TryDoWildEncounter:
 	cp c
 	ld a, [wWaterRate]
 	jr z, .CanEncounter
-; even if not in grass/water, standing anywhere we can encounter pokemon
-; so long as the map is "indoor" and has wild pokemon defined.
+; even if not in grass/water, standing anywhere we can encounter DIGIMON
+; so long as the map is "indoor" and has wild DIGIMON defined.
 ; ...as long as it's not Viridian Forest or Safari Zone.
 	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP ; is this an indoor map?
@@ -61,7 +61,7 @@ TryDoWildEncounter:
 	inc hl
 	jr .determineEncounterSlot
 .gotEncounterSlot
-; determine which wild pokemon (grass or water) can appear in the half-block we're standing in
+; determine which wild DIGIMON (grass or water) can appear in the half-block we're standing in
 	ld c, [hl]
 	ld hl, wGrassMons
 	lda_coord 8, 9

@@ -6,8 +6,8 @@ ReadTrainer:
 	ret nz
 
 ; set [wEnemyPartyCount] to 0, [wEnemyPartySpecies] to FF
-; XXX first is total enemy pokemon?
-; XXX second is species of first pokemon?
+; XXX first is total enemy DIGIMON?
+; XXX second is species of first DIGIMON?
 	ld hl, wEnemyPartyCount
 	xor a
 	ld [hli], a
@@ -16,7 +16,7 @@ ReadTrainer:
 
 ; get the pointer to trainer data for this class
 	ld a, [wCurOpponent]
-	sub OPP_ID_OFFSET + 1 ; convert value from pokemon to trainer
+	sub OPP_ID_OFFSET + 1 ; convert value from DIGIMON to trainer
 	add a
 	ld hl, TrainerDataPointers
 	ld c, a
@@ -41,10 +41,10 @@ ReadTrainer:
 	jr .outer
 
 ; if the first byte of trainer data is FF,
-; - each pokemon has a specific level
+; - each DIGIMON has a specific level
 ;      (as opposed to the whole team being of the same level)
-; - if [wLoneAttackNo] != 0, one pokemon on the team has a special move
-; else the first byte is the level of every pokemon on the team
+; - if [wLoneAttackNo] != 0, one DIGIMON on the team has a special move
+; else the first byte is the level of every DIGIMON on the team
 .IterateTrainer
 	ld a, [hli]
 	cp $FF ; is the trainer special?
@@ -63,9 +63,9 @@ ReadTrainer:
 	jr .LoopTrainerData
 .SpecialTrainer
 ; if this code is being run:
-; - each pokemon has a specific level
+; - each DIGIMON has a specific level
 ;      (as opposed to the whole team being of the same level)
-; - if [wLoneAttackNo] != 0, one pokemon on the team has a special move
+; - if [wLoneAttackNo] != 0, one DIGIMON on the team has a special move
 	ld a, [hli]
 	and a ; have we reached the end of the trainer data?
 	jr z, .AddLoneMove

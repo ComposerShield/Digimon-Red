@@ -1,4 +1,4 @@
-; [wd0b5] = pokemon ID
+; [wd0b5] = DIGIMON ID
 ; hl = dest addr
 PrintMonType:
 	call GetPredefRegisters

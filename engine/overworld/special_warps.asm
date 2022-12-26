@@ -73,10 +73,10 @@ LoadSpecialWarpData:
 	ld hl, wd732
 	bit 4, [hl] ; used dungeon warp (jumped down hole/waterfall)?
 	jr nz, .usedDunegonWarp
-	bit 6, [hl] ; return to last pokemon center (or player's house)?
+	bit 6, [hl] ; return to last DIGIMON center (or player's house)?
 	res 6, [hl]
 	jr z, .otherDestination
-; return to last pokemon center or player's house
+; return to last DIGIMON center or player's house
 	ld a, [wLastBlackoutMap]
 	jr .usedFlyWarp
 .usedDunegonWarp

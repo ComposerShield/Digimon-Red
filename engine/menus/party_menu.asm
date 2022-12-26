@@ -3,7 +3,7 @@ DrawPartyMenu_::
 	ldh [hAutoBGTransferEnabled], a
 	call ClearScreen
 	call UpdateSprites
-	farcall LoadMonPartySpriteGfxWithLCDDisabled ; load pokemon icon graphics
+	farcall LoadMonPartySpriteGfxWithLCDDisabled ; load DIGIMON icon graphics
 
 RedrawPartyMenu_::
 	ld a, [wPartyMenuTypeOrMessageID]
@@ -29,8 +29,8 @@ RedrawPartyMenu_::
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
 	pop hl
-	call PlaceString ; print the pokemon's name
-	farcall WriteMonPartySpriteOAMByPartyIndex ; place the appropriate pokemon icon
+	call PlaceString ; print the DIGIMON's name
+	farcall WriteMonPartySpriteOAMByPartyIndex ; place the appropriate DIGIMON icon
 	ldh a, [hPartyMonIndex]
 	ld [wWhichPokemon], a
 	inc a
@@ -39,15 +39,15 @@ RedrawPartyMenu_::
 	pop hl
 	push hl
 	ld a, [wMenuItemToSwap]
-	and a ; is the player swapping pokemon positions?
+	and a ; is the player swapping DIGIMON positions?
 	jr z, .skipUnfilledRightArrow
-; if the player is swapping pokemon positions
+; if the player is swapping DIGIMON positions
 	dec a
 	ld b, a
 	ld a, [wWhichPokemon]
-	cp b ; is the player swapping the current pokemon in the list?
+	cp b ; is the player swapping the current DIGIMON in the list?
 	jr nz, .skipUnfilledRightArrow
-; the player is swapping the current pokemon in the list
+; the player is swapping the current DIGIMON in the list
 	dec hl
 	dec hl
 	dec hl
@@ -82,7 +82,7 @@ RedrawPartyMenu_::
 	jr .printLevel
 .teachMoveMenu
 	push hl
-	predef CanLearnTM ; check if the pokemon can learn the move
+	predef CanLearnTM ; check if the DIGIMON can learn the move
 	pop hl
 	ld de, .ableToLearnMoveText
 	ld a, c
@@ -135,7 +135,7 @@ RedrawPartyMenu_::
 	call FarCopyData
 	ld hl, wEvosMoves
 	ld de, .notAbleToEvolveText
-; loop through the pokemon's evolution entries
+; loop through the DIGIMON's evolution entries
 .checkEvolutionsLoop
 	ld a, [hli]
 	and a ; reached terminator?

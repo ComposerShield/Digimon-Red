@@ -522,7 +522,7 @@ wPlayerMonUnmodifiedDefense:: dw
 wPlayerMonUnmodifiedSpeed:: dw
 wPlayerMonUnmodifiedSpecial:: dw
 
-; stat modifiers for the player's current pokemon
+; stat modifiers for the player's current DIGIMON
 ; value can range from 1 - 13 ($1 to $D)
 ; 7 is normal
 wPlayerMonStatMods::
@@ -544,7 +544,7 @@ wEnemyMonUnmodifiedDefense:: dw
 wEnemyMonUnmodifiedSpeed:: dw
 wEnemyMonUnmodifiedSpecial:: dw
 
-; stat modifiers for the enemy's current pokemon
+; stat modifiers for the enemy's current DIGIMON
 ; value can range from 1 - 13 ($1 to $D)
 ; 7 is normal
 wEnemyMonStatMods::
@@ -867,7 +867,7 @@ wFlags_0xcd60:: db
 ; In addition, some items store 2 for certain types of failures, but this
 ; cannot happen in battle.
 ; In battle, a non-zero value indicates the player has taken their turn using
-; something other than a move (e.g. using an item or switching pokemon).
+; something other than a move (e.g. using an item or switching DIGIMON).
 ; So, when an item is successfully used in battle, this value becomes non-zero
 ; and the player is not allowed to make a move and the two uses are compatible.
 wActionResultOrTookBattleTurn:: db
@@ -1071,7 +1071,7 @@ wItemPrices:: dw
 
 wcf91:: db ; used with a lot of things (too much to list here)
 
-; which pokemon you selected
+; which DIGIMON you selected
 wWhichPokemon:: db
 
 ; if non-zero, then print item prices when displaying lists
@@ -1212,7 +1212,7 @@ wIsInBattle:: db
 ; flags that indicate which party members should be be given exp when GainExperience is called
 wPartyGainExpFlags:: flag_array PARTY_LENGTH
 
-; in a wild battle, this is the species of pokemon
+; in a wild battle, this is the species of DIGIMON
 ; in a trainer battle, this is the trainer class + OPP_ID_OFFSET
 wCurOpponent:: db
 
@@ -2123,7 +2123,7 @@ wd72c:: db
 ; This variable is used for temporary flags and as the destination map when
 ; warping to the Trade Center or Colosseum.
 ; bit 0: sprite facing directions have been initialised in the Trade Center
-; bit 3: do scripted warp (used to warp back to Lavender Town from the top of the pokemon tower)
+; bit 3: do scripted warp (used to warp back to Lavender Town from the top of the DIGIMON tower)
 ; bit 4: on a dungeon warp
 ; bit 5: don't make NPCs face the player when spoken to
 ; Bits 6 and 7 are set by scripts when starting major battles in the storyline,
@@ -2134,8 +2134,8 @@ wd72d:: db
 
 ; bit 0: the player has received Lapras in the Silph Co. building
 ; bit 1: set in various places, but doesn't appear to have an effect
-; bit 2: the player has healed pokemon at a pokemon center at least once
-; bit 3: the player has a received a pokemon from Prof. Oak
+; bit 2: the player has healed DIGIMON at a DIGIMON center at least once
+; bit 3: the player has a received a DIGIMON from Prof. Oak
 ; bit 4: disable battles
 ; bit 5: set when a battle ends and when the player blacks out in the overworld due to poison
 ; bit 6: using the link feature
@@ -2168,7 +2168,7 @@ wd730:: db
 ; bit 3: used warp pad, escape rope, dig, teleport, or fly, so the target warp is a "fly warp"
 ; bit 4: jumped into hole (Digimon Mansion, Seafoam Islands, Victory Road) or went down waterfall (Seafoam Islands), so the target warp is a "dungeon warp"
 ; bit 5: currently being forced to ride bike (cycling road)
-; bit 6: map destination is [wLastBlackoutMap] (usually the last used pokemon center, but could be the player's house)
+; bit 6: map destination is [wLastBlackoutMap] (usually the last used DIGIMON center, but could be the player's house)
 wd732:: db
 
 ; bit 0: running a test battle
@@ -2283,8 +2283,8 @@ wSafariZoneGameOver:: db
 wNumSafariBalls:: db
 
 
-; 0 if no pokemon is in the daycare
-; 1 if pokemon is in the daycare
+; 0 if no DIGIMON is in the daycare
+; 1 if DIGIMON is in the daycare
 wDayCareInUse:: db
 
 wDayCareMonName:: ds NAME_LENGTH

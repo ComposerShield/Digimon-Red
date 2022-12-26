@@ -48,8 +48,8 @@ TrainerDataPointers:
 	dw LanceData
 
 ; if first byte != $FF, then
-	; first byte is level (of all pokemon on this team)
-	; all the next bytes are pokemon species
+	; first byte is level (of all DIGIMON on this team)
+	; all the next bytes are DIGIMON species
 	; null-terminated
 ; if first byte == $FF, then
 	; first byte is $FF (obviously)

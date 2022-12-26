@@ -531,7 +531,7 @@ WriteSymmetricMonPartySpriteOAM:
 	ret
 
 ZeroOutDuplicatesInList:
-; replace duplicate bytes in the list of wild pokemon locations with 0
+; replace duplicate bytes in the list of wild DIGIMON locations with 0
 	ld de, wBuffer
 .loop
 	ld a, [de]

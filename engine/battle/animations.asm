@@ -702,9 +702,9 @@ DoBallTossSpecialEffects:
 	cp 2 ; is it a trainer battle?
 	jr z, .isTrainerBattle
 	ld a, [wd11e]
-	cp $10 ; is the enemy pokemon the Ghost Marowak?
+	cp $10 ; is the enemy DIGIMON the Ghost Marowak?
 	ret nz
-; if the enemy pokemon is the Ghost Marowak, make it dodge during the last 3 frames
+; if the enemy DIGIMON is the Ghost Marowak, make it dodge during the last 3 frames
 	ld a, [wSubAnimCounter]
 	cp 3
 	jr z, .moveGhostMarowakLeft
@@ -811,9 +811,9 @@ DoExplodeSpecialEffects:
 	ld a, [wSubAnimCounter]
 	cp 1 ; is it the end of the subanimation?
 	jr nz, FlashScreenEveryFourFrameBlocks
-; if it's the end of the subanimation, make the attacking pokemon disappear
+; if it's the end of the subanimation, make the attacking DIGIMON disappear
 	hlcoord 1, 5
-	jp AnimationHideMonPic ; make pokemon disappear
+	jp AnimationHideMonPic ; make DIGIMON disappear
 
 ; flashes the screen when subanimation counter is 1 modulo 4
 DoBlizzardSpecialEffects:
@@ -840,13 +840,13 @@ FlashScreenUnused:
 	jp z, AnimationFlashScreen
 	ret
 
-; function to make the pokemon disappear at the beginning of the animation
+; function to make the DIGIMON disappear at the beginning of the animation
 TradeHidePokemon:
 	ld a, [wSubAnimCounter]
 	cp 6
 	ret nz
 	ld a, 2 * SCREEN_WIDTH + 7
-	jp ClearMonPicFromTileMap ; make pokemon disappear
+	jp ClearMonPicFromTileMap ; make DIGIMON disappear
 
 ; function to make a shaking pokeball jump up at the end of the animation
 TradeShakePokeball:
@@ -924,7 +924,7 @@ BallMoveDistances2:
 	db -1 ; end
 
 ; this function copies the current musical note graphic
-; so that there are two musical notes flying towards the defending pokemon
+; so that there are two musical notes flying towards the defending DIGIMON
 DoGrowlSpecialEffects:
 	ld hl, wShadowOAM
 	ld de, wShadowOAMSprite04
@@ -1933,7 +1933,7 @@ WavyScreenLineOffsets:
 	db $80 ; terminator
 
 AnimationSubstitute:
-; Changes the pokemon's sprite to the mini sprite
+; Changes the DIGIMON's sprite to the mini sprite
 	ld hl, wTempPic
 	xor a
 	ld bc, $310

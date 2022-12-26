@@ -72,7 +72,7 @@ SetPal_StatusScreen:
 	ld a, [wcf91]
 	cp NUM_POKEMON_INDEXES + 1
 	jr c, .pokemon
-	ld a, $1 ; not pokemon
+	ld a, $1 ; not DIGIMON
 .pokemon
 	call DeterminePaletteIDOutOfBattle
 	push af

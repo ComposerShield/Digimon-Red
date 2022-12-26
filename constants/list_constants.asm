@@ -1,6 +1,6 @@
 ; list menu IDs
 	const_def
-	const PCPOKEMONLISTMENU  ; $00 ; PC pokemon withdraw/deposit lists
+	const PCPOKEMONLISTMENU  ; $00 ; PC DIGIMON withdraw/deposit lists
 	const MOVESLISTMENU      ; $01 ; XXX where is this used?
 	const PRICEDITEMLISTMENU ; $02 ; Pokemart buy menu / Pokemart buy/sell choose quantity menu
 	const ITEMLISTMENU       ; $03 ; Start menu Item menu / Pokemart sell menu

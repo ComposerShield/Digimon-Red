@@ -23,8 +23,8 @@ KabutopsFossilText::
 	text_end
 
 DisplayMonFrontSpriteInBox:
-; Displays a pokemon's front sprite in a pop-up window.
-; [wcf91] = pokemon internal id number
+; Displays a DIGIMON's front sprite in a pop-up window.
+; [wcf91] = DIGIMON internal id number
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3

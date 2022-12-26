@@ -123,9 +123,9 @@ _LeaveMapAnim::
 	ld a, $4
 	call StopMusic
 	ld a, [wd732]
-	bit 6, a ; is the last used pokemon center the destination?
+	bit 6, a ; is the last used DIGIMON center the destination?
 	jr z, .flyAnimation
-; if going to the last used pokemon center
+; if going to the last used DIGIMON center
 	ld hl, wPlayerSpinInPlaceAnimFrameDelay
 	ld a, 16
 	ld [hli], a ; wPlayerSpinInPlaceAnimFrameDelay
