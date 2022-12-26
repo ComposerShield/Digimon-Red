@@ -10,7 +10,7 @@ DecrementPP:
 	and (1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << ATTACKING_MULTIPLE_TIMES)
 	ret nz               ; if any of these statuses are true, don't decrement PP
 	bit USING_RAGE, [hl]
-	ret nz               ; don't decrement PP either if Pokemon is using Rage
+	ret nz               ; don't decrement PP either if Digimon is using Rage
 	ld hl, wBattleMonPP  ; PP of first move (in battle)
 
 ; decrement PP in the battle struct
@@ -19,9 +19,9 @@ DecrementPP:
 ; decrement PP in the party struct
 	ld a, [wPlayerBattleStatus3]
 	bit TRANSFORMED, a
-	ret nz               ; Return if transformed. Pokemon Red stores the "current pokemon's" PP
-	                     ; separately from the "Pokemon in your party's" PP.  This is
-	                     ; duplication -- in all cases *other* than Pokemon with Transform.
+	ret nz               ; Return if transformed. Digimon Red stores the "current pokemon's" PP
+	                     ; separately from the "Digimon in your party's" PP.  This is
+	                     ; duplication -- in all cases *other* than Digimon with Transform.
 	                     ; Normally, this means we have to go on and make the same
 	                     ; modification to the "party's pokemon" PP that we made to the
 	                     ; "current pokemon's" PP.  But, if we're dealing with a Transformed

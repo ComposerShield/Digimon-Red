@@ -1085,7 +1085,7 @@ wHPBarType::
 ; ID used by DisplayListMenuID
 wListMenuID:: db
 
-; if non-zero, RemovePokemon will remove the mon from the current box,
+; if non-zero, RemoveDigimon will remove the mon from the current box,
 ; else it will remove the mon from the party
 wRemoveMonFromBox::
 ; 0 = move from box to party
@@ -1505,7 +1505,7 @@ wSpriteDecodeTable0Ptr:: dw
 ; pointer to differential decoding table (assuming initial value 1)
 wSpriteDecodeTable1Ptr:: dw
 
-wd0b5:: db ; used as a temp storage area for Pokemon Species, and other Pokemon/Battle related things
+wd0b5:: db ; used as a temp storage area for Digimon Species, and other Pokemon/Battle related things
 
 wNameListType:: db
 
@@ -1582,7 +1582,7 @@ wCalculateWhoseStats::
 wTypeEffectiveness::
 wMoveType::
 wNumSetBits::
-; used as a Pokemon and Item storage value. Also used as an output value for CountSetBits
+; used as a Digimon and Item storage value. Also used as an output value for CountSetBits
 wd11e::
 	db
 
@@ -2166,7 +2166,7 @@ wd730:: db
 ; 8. skips Pokémon Tower rival battle by holding down B
 ; bit 2: the target warp is a fly warp (bit 3 set or blacked out) or a dungeon warp (bit 4 set)
 ; bit 3: used warp pad, escape rope, dig, teleport, or fly, so the target warp is a "fly warp"
-; bit 4: jumped into hole (Pokemon Mansion, Seafoam Islands, Victory Road) or went down waterfall (Seafoam Islands), so the target warp is a "dungeon warp"
+; bit 4: jumped into hole (Digimon Mansion, Seafoam Islands, Victory Road) or went down waterfall (Seafoam Islands), so the target warp is a "dungeon warp"
 ; bit 5: currently being forced to ride bike (cycling road)
 ; bit 6: map destination is [wLastBlackoutMap] (usually the last used pokemon center, but could be the player's house)
 wd732:: db

@@ -3101,7 +3101,7 @@ PlayerCanExecuteChargingMove:
 	ld hl, wPlayerBattleStatus1
 	res CHARGING_UP, [hl] ; reset charging up and invulnerability statuses if mon was charging up for an attack
 	                    ; being fully paralyzed or hurting oneself in confusion removes charging up status
-	                    ; resulting in the Pokemon being invulnerable for the whole battle
+	                    ; resulting in the Digimon being invulnerable for the whole battle
 	res INVULNERABLE, [hl]
 PlayerCanExecuteMove:
 	call PrintMonName1Text
@@ -4202,7 +4202,7 @@ GetDamageVarsForPlayerAttack:
 	sla c
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
-; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+; if a Digimon with 512 or more Defense has used Reflect, or if a Digimon with 512 or more Special has used Light Screen
 .specialAttackCritCheck
 	ld hl, wBattleMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4315,7 +4315,7 @@ GetDamageVarsForEnemyAttack:
 	sla c
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
-; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+; if a Digimon with 512 or more Defense has used Reflect, or if a Digimon with 512 or more Special has used Light Screen
 .specialAttackCritCheck
 	ld hl, wEnemyMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4967,7 +4967,7 @@ ApplyAttackToPlayerPokemonDone:
 	jp DrawHUDsAndHPBars
 
 AttackSubstitute:
-; Unlike the two ApplyAttackToPokemon functions, Attack Substitute is shared by player and enemy.
+; Unlike the two ApplyAttackToDigimon functions, Attack Substitute is shared by player and enemy.
 ; Self-confusion damage as well as Hi-Jump Kick and Jump Kick recoil cause a momentary turn swap before being applied.
 ; If the user has a Substitute up and would take damage because of that,
 ; damage will be applied to the other player's Substitute.
@@ -5081,7 +5081,7 @@ BuildingRageText:
 MirrorMoveCopyMove:
 ; Mirror Move makes use of wPlayerUsedMove and wEnemyUsedMove,
 ; which are mainly used to print the "[Pokemon] used [Move]" text.
-; Both are set to 0 whenever a new Pokemon is sent out
+; Both are set to 0 whenever a new Digimon is sent out
 ; wPlayerUsedMove is also set to 0 whenever the player is fast asleep or frozen solid.
 ; wEnemyUsedMove is also set to 0 whenever the enemy is fast asleep or frozen solid.
 
@@ -5098,7 +5098,7 @@ MirrorMoveCopyMove:
 	ld hl, wEnemySelectedMove
 .next
 	ld [hl], a
-	cp MIRROR_MOVE ; did the target Pokemon last use Mirror Move, and miss?
+	cp MIRROR_MOVE ; did the target Digimon last use Mirror Move, and miss?
 	jr z, .mirrorMoveFailed
 	and a ; has the target selected any move yet?
 	jr nz, ReloadMoveData

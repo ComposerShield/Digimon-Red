@@ -1,6 +1,6 @@
 ; This function is a debugging feature to give the player Tsunekazu Ishihara's
 ; favorite Pokemon. This is indicated by the overpowered Exeggutor, which
-; Ishihara (president of Creatures Inc.) said was his favorite Pokemon in an ABC
+; Ishihara (president of Creatures Inc.) said was his favorite Digimon in an ABC
 ; interview on February 8, 2000.
 ; "Exeggutor is my favorite. That's because I was always using this character
 ; while I was debugging the program."

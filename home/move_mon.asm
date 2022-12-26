@@ -14,7 +14,7 @@ CopyDataUntil::
 	ret
 
 ; Function to remove a pokemon from the party or the current box.
-; wWhichPokemon determines the pokemon.
+; wWhichDigimon determines the pokemon.
 ; [wRemoveMonFromBox] == 0 specifies the party.
 ; [wRemoveMonFromBox] != 0 specifies the current box.
 RemovePokemon::

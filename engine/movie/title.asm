@@ -119,10 +119,10 @@ DisplayTitleScreen:
 	call EnableLCD
 
 IF DEF(_RED)
-	ld a, STARTER1 ; which Pokemon to show first on the title screen
+	ld a, STARTER1 ; which Digimon to show first on the title screen
 ENDC
 IF DEF(_BLUE)
-	ld a, STARTER2 ; which Pokemon to show first on the title screen
+	ld a, STARTER2 ; which Digimon to show first on the title screen
 ENDC
 	ld [wTitleMonSpecies], a
 	call LoadTitleMonSprite
@@ -160,7 +160,7 @@ ENDC
 	jr .bouncePokemonLogoLoop
 
 .TitleScreenPokemonLogoYScrolls:
-; Controls the bouncing effect of the Pokemon logo on the title screen
+; Controls the bouncing effect of the Digimon logo on the title screen
 	db -4,16  ; y scroll amount, number of times to scroll
 	db 3,4
 	db -3,4
@@ -171,7 +171,7 @@ ENDC
 	db 0      ; terminate list with 0
 
 .ScrollTitleScreenPokemonLogo:
-; Scrolls the Pokemon logo on the title screen to create the bouncing effect
+; Scrolls the Digimon logo on the title screen to create the bouncing effect
 ; Scrolls d pixels e times
 	call DelayFrame
 	ld a, [bc] ; background scroll Y

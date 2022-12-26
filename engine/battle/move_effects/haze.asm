@@ -26,7 +26,7 @@ HazeEffect_:
 	ld [hl], $0
 	and (1 << FRZ) | SLP_MASK
 	jr z, .cureVolatileStatuses
-; prevent the Pokemon from executing a move if it was asleep or frozen
+; prevent the Digimon from executing a move if it was asleep or frozen
 	ld a, $ff
 	ld [de], a
 

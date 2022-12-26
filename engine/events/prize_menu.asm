@@ -62,7 +62,7 @@ GetPrizeMenuId:
 ; load the three prizes at wd13d-wd13f
 ; load the three prices at wd141-wd146
 ; display the three prizes' names
-; (distinguishing between Pokemon names
+; (distinguishing between Digimon names
 ; and Items (specifically TMs) names)
 	ldh a, [hSpriteIndexOrTextID]
 	sub 3       ; prize-texts' id are 3, 4 and 5

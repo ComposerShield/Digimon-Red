@@ -179,7 +179,7 @@ SetPal_Overworld:
 	xor a
 	jr .town
 
-; used when a Pokemon is the only thing on the screen
+; used when a Digimon is the only thing on the screen
 ; such as evolution, trading and the Hall of Fame
 SetPal_PokemonWholeScreen:
 	push bc

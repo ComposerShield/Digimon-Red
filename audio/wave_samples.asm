@@ -5,7 +5,7 @@
 	dw .wave2
 	dw .wave3
 	dw .wave4
-	dw .wave5 ; used in the Lavender Town and Pokemon Tower themes
+	dw .wave5 ; used in the Lavender Town and Digimon Tower themes
 	dw .wave5 ; unused
 	dw .wave5 ; unused
 	dw .wave5 ; unused
