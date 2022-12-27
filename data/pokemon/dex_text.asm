@@ -1398,7 +1398,7 @@ _MagnemiteDexEntry::
 	next "similar moves"
 	dex
 
-_CharmanderDexEntry::
+_KoromonDexEntry::
 	text "Obviously prefers"
 	next "hot places. When"
 	next "it rains, steam"

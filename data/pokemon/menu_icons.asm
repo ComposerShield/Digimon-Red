@@ -3,7 +3,7 @@ MonPartyData:
 	nybble ICON_GRASS     ; Bulbasaur
 	nybble ICON_GRASS     ; Ivysaur
 	nybble ICON_GRASS     ; Venusaur
-	nybble ICON_MON       ; Charmander
+	nybble ICON_MON       ; Koromon
 	nybble ICON_MON       ; Charmeleon
 	nybble ICON_MON       ; Charizard
 	nybble ICON_WATER     ; Squirtle

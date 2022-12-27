@@ -149,10 +149,10 @@ CeruleanCityScript1:
 	jr .done
 .NotSquirtle
 	cp STARTER3
-	jr nz, .Charmander
+	jr nz, .Koromon
 	ld a, $8
 	jr .done
-.Charmander
+.Koromon
 	ld a, $9
 .done
 	ld [wTrainerNo], a

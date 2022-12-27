@@ -107,10 +107,10 @@ SSAnne2Script1:
 	jr .done
 .NotSquirtle
 	cp STARTER3
-	jr nz, .Charmander
+	jr nz, .Koromon
 	ld a, $2
 	jr .done
-.Charmander
+.Koromon
 	ld a, $3
 .done
 	ld [wTrainerNo], a

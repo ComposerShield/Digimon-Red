@@ -25,7 +25,7 @@ _OaksLabText39::
 	cont "contain #MON!"
 	done
 
-_OaksLabCharmanderText::
+_OaksLabKoromonText::
 	text "So! You want the"
 	line "fire #MON,"
 	cont "CHARMANDER?"

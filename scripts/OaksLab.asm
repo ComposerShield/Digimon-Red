@@ -193,11 +193,11 @@ OaksLabScript7:
 OaksLabScript8:
 	ld a, [wPlayerStarter]
 	cp STARTER1
-	jr z, .Charmander
+	jr z, .Koromon
 	cp STARTER2
 	jr z, .Squirtle
 	jr .Bulbasaur
-.Charmander
+.Koromon
 	ld de, .MiddleBallMovement1
 	ld a, [wYCoord]
 	cp 4 ; is the player standing below the table?
@@ -390,10 +390,10 @@ OaksLabScript11:
 	jr .done
 .NotSquirtle
 	cp STARTER3
-	jr nz, .Charmander
+	jr nz, .Koromon
 	ld a, $2
 	jr .done
-.Charmander
+.Koromon
 	ld a, $3
 .done
 	ld [wTrainerNo], a
@@ -861,16 +861,16 @@ OaksLabScript_1d157:
 	call DelayFrames
 	ld a, [wSpriteIndex]
 	cp $2
-	jr z, OaksLabLookAtCharmander
+	jr z, OaksLabLookAtKoromon
 	cp $3
 	jr z, OaksLabLookAtSquirtle
 	jr OaksLabLookAtBulbasaur
 
-OaksLabLookAtCharmander:
-	ld hl, OaksLabCharmanderText
+OaksLabLookAtKoromon:
+	ld hl, OaksLabKoromonText
 	jr OaksLabMonChoiceMenu
-OaksLabCharmanderText:
-	text_far _OaksLabCharmanderText
+OaksLabKoromonText:
+	text_far _OaksLabKoromonText
 	text_end
 
 OaksLabLookAtSquirtle:

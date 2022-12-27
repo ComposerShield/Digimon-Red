@@ -118,7 +118,7 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_GOT_POKEDEX
 
 	; Rival chose Squirtle,
-	; Player chose Charmander.
+	; Player chose Koromon.
 	ld hl, wRivalStarter
 	ld a, STARTER2
 	ld [hli], a
