@@ -28,7 +28,7 @@ _OaksLabText39::
 _OaksLabKoromonText::
 	text "So! You want the"
 	line "fire #MON,"
-	cont "CHARMANDER?"
+	cont "AGUMON?"
 	done
 
 _OaksLabSquirtleText::
