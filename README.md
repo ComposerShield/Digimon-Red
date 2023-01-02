@@ -2,6 +2,8 @@
 
 This is a work-in-progress hack of Pokemon Red/Blue which replaces the sprites and dialog pertaining to Pokemon with Digimon.
 
+![plot](.digimon_readme_image.png)
+
 The following is the original README
 
 
