@@ -1,3 +1,10 @@
+# Digimon Red [![Build Status][ci-badge]][ci]
+
+This is a work-in-progress hack of Pokemon Red/Blue which replaces the sprites and dialog pertaining to Pokemon with Digimon.
+
+The following is the original README
+
+
 # Pokémon Red and Blue [![Build Status][ci-badge]][ci]
 
 This is a disassembly of Pokémon Red and Blue.
