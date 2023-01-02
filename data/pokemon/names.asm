@@ -176,7 +176,7 @@ MonsterNames::
 	db "MISSINGNO."
 	db "MISSINGNO."
 	db "AGUMON@@@@"
-	db "SQUIRTLE@@"
+	db "GABUMON@@@"
 	db "CHARMELEON"
 	db "WARTORTLE@"
 	db "CHARIZARD@"
