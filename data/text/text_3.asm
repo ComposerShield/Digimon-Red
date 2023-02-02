@@ -34,7 +34,7 @@ _ChooseABoxText::
 
 _EvolvedText::
 	text_ram wStringBuffer
-	text " evolved"
+	text " digivolved"
 	done
 
 _IntoText::
