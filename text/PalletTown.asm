@@ -1,10 +1,10 @@
 _OakAppearsText::
-	text "OAK: Hey! Wait!"
+	text "IZZY: Hey! Wait!"
 	line "Don't go out!@"
 	text_end
 
 _OakWalksUpText::
-	text "OAK: It's unsafe!"
+	text "IZZY: It's unsafe!"
 	line "Wild #MON live"
 	cont "in tall grass!"
 
@@ -32,12 +32,12 @@ _PalletTownText3::
 
 	para "You can now store"
 	line "and recall items"
-	cont "and #MON as"
-	cont "data via PC!"
+	cont "and #MON from"
+	cont "the cloud!"
 	done
 
 _PalletTownText4::
-	text "OAK #MON"
+	text "IZZY #MON"
 	line "RESEARCH LAB"
 	done
 

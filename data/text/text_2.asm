@@ -193,7 +193,7 @@ _MtMoonPokecenterBenchGuyText::
 	text "If you have too"
 	line "many #MON, you"
 	cont "should store them"
-	cont "via PC!"
+	cont "via the cloud!"
 	done
 
 _RockTunnelPokecenterGuyText::
@@ -394,7 +394,7 @@ _MagazinesText::
 _BillsHouseMonitorText::
 	text "TELEPORTER is"
 	line "displayed on the"
-	cont "PC monitor."
+	cont "iMac monitor."
 	done
 
 _BillsHouseInitiatedText::
@@ -576,7 +576,7 @@ _IndigoPlateauHQText::
 
 _RedBedroomSNESText::
 	text "<PLAYER> is"
-	line "playing the SNES!"
+	line "playing the SWITCH"
 	cont "...Okay!"
 	cont "It's time to go!"
 	done
@@ -1441,12 +1441,12 @@ _RareCandyText::
 
 _TurnedOnPC1Text::
 	text "<PLAYER> turned on"
-	line "the PC."
+	line "the iMac."
 	prompt
 
 _AccessedBillsPCText::
 	text "Accessed BILL's"
-	line "PC."
+	line "iMac."
 
 	para "Accessed #MON"
 	line "Storage System."
@@ -1454,22 +1454,22 @@ _AccessedBillsPCText::
 
 _AccessedSomeonesPCText::
 	text "Accessed someone's"
-	line "PC."
+	line "cloud computer."
 
 	para "Accessed #MON"
 	line "Storage System."
 	prompt
 
 _AccessedMyPCText::
-	text "Accessed my PC."
+	text "Accessed my cloud."
 
-	para "Accessed Item"
+	para "Accessed Cloud"
 	line "Storage System."
 	prompt
 
 _TurnedOnPC2Text::
 	text "<PLAYER> turned on"
-	line "the PC."
+	line "the iMac."
 	prompt
 
 _WhatDoYouWantText::
@@ -1489,7 +1489,7 @@ _DepositHowManyText::
 _ItemWasStoredText::
 	text_ram wcd6d
 	text " was"
-	line "stored via PC."
+	line "stored in the cloud."
 	prompt
 
 _NothingToDepositText::
@@ -1667,12 +1667,12 @@ _GetDexRatedText::
 
 _ClosedOaksPCText::
 	text "Closed link to"
-	line "PROF.IZZY's PC.@"
+	line "PROF.IZZY's iMac.@"
 	text_end
 
 _AccessedOaksPCText::
 	text "Accessed PROF."
-	line "IZZY's PC."
+	line "IZZY's iMac."
 
 	para "Accessed #DEX"
 	line "Rating System."

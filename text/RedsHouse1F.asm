@@ -1,10 +1,10 @@
 _MomWakeUpText::
-	text "MOM: Right."
-	line "All boys leave"
-	cont "home some day."
-	cont "It said so on TV."
+	text "MOM: This rom"
+	line "hack was a lot of"
+	cont "work!"
+	cont "Hope you enjoy!"
 
-	para "PROF.OAK, next"
+	para "PROF.IZZY, next"
 	line "door, is looking"
 	cont "for you."
 	done
