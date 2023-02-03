@@ -20,7 +20,7 @@ _OaksLabText41::
 	done
 
 _OaksLabText39::
-	text "Those are #"a
+	text "Those are #"
 	line "BALLs. They"
 	cont "contain #MON!"
 	done
