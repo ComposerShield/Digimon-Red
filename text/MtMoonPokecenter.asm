@@ -7,11 +7,11 @@ _MtMoonPokecenterText1::
 	done
 
 _MtMoonPokecenterText3::
-	text "TEAM ROCKET"
+	text "CLUB CRYPTO"
 	line "attacks CERULEAN"
 	cont "citizens..."
 
-	para "TEAM ROCKET is"
+	para "CLUB CRYPTO is"
 	line "always in the"
 	cont "news!"
 	done

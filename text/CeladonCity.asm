@@ -82,8 +82,8 @@ _CeladonCityText8::
 	done
 
 _CeladonCityText9::
-	text "Keep out of TEAM"
-	line "ROCKET's way!"
+	text "Keep out of CLUB"
+	line "CRYPTO's way!"
 	done
 
 _CeladonCityText10::

@@ -1,12 +1,12 @@
 _SilphCo5Text_1a010::
-	text "TEAM ROCKET is"
+	text "CLUB CRYPTO is"
 	line "in an uproar over"
 	cont "some intruder."
 	cont "That's you right?"
 	done
 
 _SilphCo5Text_1a015::
-	text "TEAM ROCKET took"
+	text "CLUB CRYPTO took"
 	line "off! You're our"
 	cont "hero! Thank you!"
 	done
@@ -23,7 +23,7 @@ _SilphCo5EndBattleText2::
 _SilphCo5AfterBattleText2::
 	text "It's not smart"
 	line "to pick a fight"
-	cont "with TEAM ROCKET!"
+	cont "with CLUB CRYPTO!"
 	done
 
 _SilphCo5BattleText3::

@@ -11,7 +11,7 @@ _LavenderHouse2Text_1d9dc::
 
 	para "It was killed"
 	line "trying to escape"
-	cont "from TEAM ROCKET!"
+	cont "from CLUB CRYPTO!"
 	done
 
 _LavenderHouse2Text_1d9e1::

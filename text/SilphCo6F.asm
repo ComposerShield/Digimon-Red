@@ -31,14 +31,14 @@ _SilphCo6Text_1a27d::
 	done
 
 _SilphCo6Text_1a28f::
-	text "TEAM ROCKET is"
+	text "CLUB CRYPTO is"
 	line "trying to conquer"
 	cont "the world with"
 	cont "#MON!"
 	done
 
 _SilphCo6Text_1a294::
-	text "TEAM ROCKET ran"
+	text "CLUB CRYPTO ran"
 	line "because of you!"
 	done
 
@@ -92,7 +92,7 @@ _SilphCo6AfterBattleText3::
 
 _SilphCo6BattleText4::
 	text "You dare betray"
-	line "TEAM ROCKET?"
+	line "CLUB CRYPTO?"
 	done
 
 _SilphCo6EndBattleText4::

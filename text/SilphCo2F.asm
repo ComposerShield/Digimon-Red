@@ -3,7 +3,7 @@ _SilphCo2Text_59ded::
 	line "No! Stop! Help!"
 
 	para "Oh, you're not"
-	line "with TEAM ROCKET."
+	line "with CLUB CRYPTO."
 	cont "I thought..."
 	cont "I'm sorry. Here,"
 	cont "please take this!"
@@ -93,5 +93,5 @@ _SilphCo2EndBattleText4::
 _SilphCo2AfterBattleText4::
 	text "SILPH CO. will"
 	line "be merged with"
-	cont "TEAM ROCKET!"
+	cont "CLUB CRYPTO!"
 	done

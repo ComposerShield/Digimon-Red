@@ -20,7 +20,7 @@ _OaksLabText41::
 	done
 
 _OaksLabText39::
-	text "Those are #"
+	text "Those are #"a
 	line "BALLs. They"
 	cont "contain #MON!"
 	done
@@ -40,7 +40,7 @@ _OaksLabSquirtleText::
 _OaksLabBulbasaurText::
 	text "So! You want the"
 	line "plant #MON,"
-	cont "BULBASAUR?"
+	cont "PALMON?"
 	done
 
 _OaksLabMonEnergeticText::

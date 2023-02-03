@@ -40,7 +40,7 @@ _RocketHideout4EndBattleText2::
 _RocketHide4AfterBattleText2::
 	text "Do you have"
 	line "something against"
-	cont "TEAM ROCKET?"
+	cont "CLUB CRYPTO?"
 	done
 
 _RocketHideout4BattleText3::

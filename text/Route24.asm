@@ -1,7 +1,7 @@
 _Route24Text_51510::
 	text "Congratulations!"
 	line "You beat our 5"
-	cont "contest trainers!@"
+	cont "best investors!@"
 	text_end
 
 _Route24Text_51515::
@@ -26,11 +26,11 @@ _Route24Text_51521::
 _Route24Text_51526::
 	text "By the way, would"
 	line "you like to join"
-	cont "TEAM ROCKET?"
+	cont "CLUB CRYPTO?"
 
 	para "We're a group"
-	line "dedicated to evil"
-	cont "using #MON!"
+	line "trying to end"
+	cont "fiat currency!"
 
 	para "Want to join?"
 
@@ -58,7 +58,7 @@ _Route24Text_51530::
 	text "With your ability,"
 	line "you could become"
 	cont "a top leader in"
-	cont "TEAM ROCKET!"
+	cont "CLUB CRYPTO!"
 	done
 
 _Route24BattleText1::

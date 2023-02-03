@@ -10,7 +10,7 @@ _SilphCo5AfterBattleText4::
 	done
 
 _SilphCo5BattleText5::
-	text "Show TEAM ROCKET"
+	text "Show CLUB CRYPTO"
 	line "a little respect!"
 	done
 

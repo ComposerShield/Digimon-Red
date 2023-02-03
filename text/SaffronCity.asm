@@ -15,7 +15,7 @@ _SaffronCityText3::
 
 _SaffronCityText4::
 	text "SAFFRON belongs"
-	line "to TEAM ROCKET!"
+	line "to CLUB CRYPTO!"
 	done
 
 _SaffronCityText5::
@@ -42,7 +42,7 @@ _SaffronCityText8::
 	done
 
 _SaffronCityText9::
-	text "Yeah! TEAM ROCKET"
+	text "Yeah! CLUB CRYPTO"
 	line "is gone!"
 	cont "It's safe to go"
 	cont "out again!"

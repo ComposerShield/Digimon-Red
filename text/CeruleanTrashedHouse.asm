@@ -24,13 +24,13 @@ _CeruleanTrashedText_1d6b0::
 	done
 
 _CeruleanHouseTrashedText2::
-	text "TEAM ROCKET must"
+	text "CLUB CRYPTO must"
 	line "be trying to DIG"
 	cont "their way into no"
 	cont "good!"
 	done
 
 _CeruleanHouseTrashedText3::
-	text "TEAM ROCKET left"
+	text "CLUB CRYPTO left"
 	line "a way out!"
 	done

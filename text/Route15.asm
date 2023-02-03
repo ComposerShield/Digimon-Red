@@ -116,7 +116,7 @@ _Route15AfterBattleText7::
 	text "You only live"
 	line "once, so I live"
 	cont "as an outlaw!"
-	cont "TEAM ROCKET RULES!"
+	cont "CLUB CRYPTO RULES!"
 	done
 
 _Route15BattleText8::

@@ -14,7 +14,7 @@ _RocketHideout1EndBattleText2::
 
 _RocketHideout1AfterBattleTxt2::
 	text "Are you dissing"
-	line "TEAM ROCKET?"
+	line "CLUB CRYPTO?"
 	done
 
 _RocketHideout1BattleText3::

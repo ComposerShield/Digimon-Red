@@ -39,7 +39,7 @@ _SilphCo3EndBattleText2::
 _SilphCo3AfterBattleText2::
 	text "Humph..."
 
-	para "TEAM ROCKET said"
+	para "CLUB CRYPTO said"
 	line "that if I helped"
 	cont "them, they'd let"
 	cont "me study #MON!"

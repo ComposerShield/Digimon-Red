@@ -127,7 +127,7 @@ _CeruleanCityText6::
 	line "were robbed."
 
 	para "It's obvious that"
-	line "TEAM ROCKET is"
+	line "CLUB CRYPTO is"
 	cont "behind this most"
 	cont "heinous crime!"
 

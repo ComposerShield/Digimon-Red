@@ -31,7 +31,7 @@ _GiovanniPostBattleAdviceText::
 	text "Having lost, I"
 	line "cannot face my"
 	cont "underlings!"
-	cont "TEAM ROCKET is"
+	cont "CLUB CRYPTO is"
 	cont "finished forever!"
 
 	para "I will dedicate my"
