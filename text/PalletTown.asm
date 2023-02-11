@@ -18,16 +18,16 @@ _OakWalksUpText::
 	done
 
 _PalletTownText2::
-	text "I'm raising"
-	line "#MON too!"
+	text "Inflation is"
+	line "through the roof!"
 
-	para "When they get"
-	line "strong, they can"
-	cont "protect me!"
+	para "We need to stand"
+	line "with workers in"
+	cont "solidarity!"
 	done
 
 _PalletTownText3::
-	text "Technology is"
+	text "AWS is"
 	line "incredible!"
 
 	para "You can now store"
@@ -42,9 +42,9 @@ _PalletTownText4::
 	done
 
 _PalletTownText5::
-	text "PALLET TOWN"
-	line "Shades of your"
-	cont "journey await!"
+	text "JEANNETTE"
+	line "We love our"
+	cont "kids!"
 	done
 
 _PalletTownText6::

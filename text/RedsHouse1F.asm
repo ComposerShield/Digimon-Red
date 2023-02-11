@@ -11,25 +11,25 @@ _MomWakeUpText::
 
 _MomHealText1::
 	text "MOM: <PLAYER>!"
-	line "You should take a"
-	cont "quick rest."
+	line "You should have"
+	cont "some coffee."
 	prompt
 
 _MomHealText2::
 	text "MOM: Oh good!"
 	line "You and your"
 	cont "#MON are"
-	cont "looking great!"
-	cont "Take care now!"
+	cont "cocked, locked,"
+	cont "and ready to"
+	cont "rock!"
 	done
 
 _StandByMeText::
-	text "There's a movie"
-	line "on TV. Four boys"
-	cont "are walking on"
-	cont "railroad tracks."
+	text "Your mom is"
+	line "streaming mind-"
+	cont "less content."
 
-	para "I better go too."
+	para "Let's dip."
 	done
 
 _TVWrongSideText::
